@@ -1,0 +1,62 @@
+﻿@model AVECinema.cinema.schedule[]
+
+@{
+    ViewBag.Title = "EditSchedule";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit Schedule</h2>
+@if (Model != null)
+{
+    foreach (var s in Model)
+    {
+        using (Html.BeginForm("EditScheduleSaveChanges", "Movie"))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <div class="col-md-10">
+                        <input type="hidden" value="@ViewBag.movieID" name="movieID" id="movieID" />
+                        <input type="text" value="@s.roomNo" name="roomNo" id="roomNo" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-10">
+                        <input type="date" value="@s.date" name="date" id="date" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-10">
+                        <input type="time" value="@s.startTime" name="startTime" id="startTime" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-10">
+                        <input type="time" value="@s.endTime" name="endTime" id="endTime" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-10">
+                        <input type="number" value="@s.scheduleID" name="scheduleID" id="scheduleID" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Save" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+        }
+    }
+}
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

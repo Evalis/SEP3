@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\AVECinema",
+    "\\AVECinema\\Controllers",
+    "\\AVECinema\\Views",
+    "\\AVECinema\\Views\\Customer",
+    "\\AVECinema\\Views\\Home",
+    "\\AVECinema\\Views\\Movie",
+    "\\AVECinema\\Views\\Reservation",
+    "\\AVECinema\\Views\\Shared",
+    "\\EmailService"
+  ],
+  "SelectedNode": "\\AVECinema\\Controllers\\MovieController.cs",
+  "PreviewInSolutionExplorer": false
+}

@@ -1,0 +1,47 @@
+﻿@model AVECinema.cinema.voucher
+
+@{
+    ViewBag.Title = "MakeVoucher";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<h2>Make Voucher</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Voucher code</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line input-validation-error" data-val="true" data-val-required="Code is required" id="code" name="code" type="text" value="" aria-describedby="code-error" aria-invalid="true">
+                <span class="text-danger field-validation-error" data-valmsg-for="code" data-valmsg-replace="true"><span id="code-error" class=""></span></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Percentage</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line input-validation-error" data-val="true" data-val-required="Code is required" id="percentage" name="percentage" type="text" value="" aria-describedby="percentage-error" aria-invalid="true" min="1" max="99" step="1">
+                <span class="text-danger field-validation-error" data-valmsg-for="percentage" data-valmsg-replace="true"><span id="percentage-error" class=""></span></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

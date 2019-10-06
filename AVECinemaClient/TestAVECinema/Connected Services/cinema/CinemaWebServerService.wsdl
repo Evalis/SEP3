@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://webServer/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="CinemaWebServerService" targetNamespace="http://webServer/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://desktop-ut6n81q:8080/AVECinema/CinemaWebServerService?xsd=1" namespace="http://webServer/" />
+    </xsd:schema>
+  </types>
+  <message name="getManager">
+    <part name="parameters" element="tns:getManager" />
+  </message>
+  <message name="getManagerResponse">
+    <part name="parameters" element="tns:getManagerResponse" />
+  </message>
+  <message name="logIn">
+    <part name="parameters" element="tns:logIn" />
+  </message>
+  <message name="logInResponse">
+    <part name="parameters" element="tns:logInResponse" />
+  </message>
+  <message name="getCustomer">
+    <part name="parameters" element="tns:getCustomer" />
+  </message>
+  <message name="getCustomerResponse">
+    <part name="parameters" element="tns:getCustomerResponse" />
+  </message>
+  <message name="saveMovie">
+    <part name="parameters" element="tns:saveMovie" />
+  </message>
+  <message name="saveMovieResponse">
+    <part name="parameters" element="tns:saveMovieResponse" />
+  </message>
+  <message name="updateMovieInfo">
+    <part name="parameters" element="tns:updateMovieInfo" />
+  </message>
+  <message name="updateMovieInfoResponse">
+    <part name="parameters" element="tns:updateMovieInfoResponse" />
+  </message>
+  <message name="getAllMovies">
+    <part name="parameters" element="tns:getAllMovies" />
+  </message>
+  <message name="getAllMoviesResponse">
+    <part name="parameters" element="tns:getAllMoviesResponse" />
+  </message>
+  <message name="getSchedules">
+    <part name="parameters" element="tns:getSchedules" />
+  </message>
+  <message name="getSchedulesResponse">
+    <part name="parameters" element="tns:getSchedulesResponse" />
+  </message>
+  <message name="saveSchedule">
+    <part name="parameters" element="tns:saveSchedule" />
+  </message>
+  <message name="saveScheduleResponse">
+    <part name="parameters" element="tns:saveScheduleResponse" />
+  </message>
+  <message name="updateManagerInfo">
+    <part name="parameters" element="tns:updateManagerInfo" />
+  </message>
+  <message name="updateManagerInfoResponse">
+    <part name="parameters" element="tns:updateManagerInfoResponse" />
+  </message>
+  <message name="updateCustomerInfo">
+    <part name="parameters" element="tns:updateCustomerInfo" />
+  </message>
+  <message name="updateCustomerInfoResponse">
+    <part name="parameters" element="tns:updateCustomerInfoResponse" />
+  </message>
+  <message name="registerNewCustomer">
+    <part name="parameters" element="tns:registerNewCustomer" />
+  </message>
+  <message name="registerNewCustomerResponse">
+    <part name="parameters" element="tns:registerNewCustomerResponse" />
+  </message>
+  <portType name="CinemaWebServer">
+    <operation name="getManager">
+      <input wsam:Action="http://webServer/CinemaWebServer/getManagerRequest" message="tns:getManager" />
+      <output wsam:Action="http://webServer/CinemaWebServer/getManagerResponse" message="tns:getManagerResponse" />
+    </operation>
+    <operation name="logIn">
+      <input wsam:Action="http://webServer/CinemaWebServer/logInRequest" message="tns:logIn" />
+      <output wsam:Action="http://webServer/CinemaWebServer/logInResponse" message="tns:logInResponse" />
+    </operation>
+    <operation name="getCustomer">
+      <input wsam:Action="http://webServer/CinemaWebServer/getCustomerRequest" message="tns:getCustomer" />
+      <output wsam:Action="http://webServer/CinemaWebServer/getCustomerResponse" message="tns:getCustomerResponse" />
+    </operation>
+    <operation name="saveMovie">
+      <input wsam:Action="http://webServer/CinemaWebServer/saveMovieRequest" message="tns:saveMovie" />
+      <output wsam:Action="http://webServer/CinemaWebServer/saveMovieResponse" message="tns:saveMovieResponse" />
+    </operation>
+    <operation name="updateMovieInfo">
+      <input wsam:Action="http://webServer/CinemaWebServer/updateMovieInfoRequest" message="tns:updateMovieInfo" />
+      <output wsam:Action="http://webServer/CinemaWebServer/updateMovieInfoResponse" message="tns:updateMovieInfoResponse" />
+    </operation>
+    <operation name="getAllMovies">
+      <input wsam:Action="http://webServer/CinemaWebServer/getAllMoviesRequest" message="tns:getAllMovies" />
+      <output wsam:Action="http://webServer/CinemaWebServer/getAllMoviesResponse" message="tns:getAllMoviesResponse" />
+    </operation>
+    <operation name="getSchedules">
+      <input wsam:Action="http://webServer/CinemaWebServer/getSchedulesRequest" message="tns:getSchedules" />
+      <output wsam:Action="http://webServer/CinemaWebServer/getSchedulesResponse" message="tns:getSchedulesResponse" />
+    </operation>
+    <operation name="saveSchedule">
+      <input wsam:Action="http://webServer/CinemaWebServer/saveScheduleRequest" message="tns:saveSchedule" />
+      <output wsam:Action="http://webServer/CinemaWebServer/saveScheduleResponse" message="tns:saveScheduleResponse" />
+    </operation>
+    <operation name="updateManagerInfo">
+      <input wsam:Action="http://webServer/CinemaWebServer/updateManagerInfoRequest" message="tns:updateManagerInfo" />
+      <output wsam:Action="http://webServer/CinemaWebServer/updateManagerInfoResponse" message="tns:updateManagerInfoResponse" />
+    </operation>
+    <operation name="updateCustomerInfo">
+      <input wsam:Action="http://webServer/CinemaWebServer/updateCustomerInfoRequest" message="tns:updateCustomerInfo" />
+      <output wsam:Action="http://webServer/CinemaWebServer/updateCustomerInfoResponse" message="tns:updateCustomerInfoResponse" />
+    </operation>
+    <operation name="registerNewCustomer">
+      <input wsam:Action="http://webServer/CinemaWebServer/registerNewCustomerRequest" message="tns:registerNewCustomer" />
+      <output wsam:Action="http://webServer/CinemaWebServer/registerNewCustomerResponse" message="tns:registerNewCustomerResponse" />
+    </operation>
+  </portType>
+  <binding name="CinemaWebServerPortBinding" type="tns:CinemaWebServer">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="getManager">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="logIn">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getCustomer">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="saveMovie">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="updateMovieInfo">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getAllMovies">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getSchedules">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="saveSchedule">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="updateManagerInfo">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="updateCustomerInfo">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="registerNewCustomer">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="CinemaWebServerService">
+    <port name="CinemaWebServerPort" binding="tns:CinemaWebServerPortBinding">
+      <soap:address location="http://desktop-ut6n81q:8080/AVECinema/CinemaWebServerService" />
+    </port>
+  </service>
+</definitions>

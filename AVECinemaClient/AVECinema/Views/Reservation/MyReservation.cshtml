@@ -1,0 +1,101 @@
+﻿@model IEnumerable<AVECinema.cinema.reservation>
+
+
+@{
+    ViewBag.Title = "MyReservation";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>My Reservation</h2>
+
+@if (Model != null)
+{
+    <table class="table">
+        <tr>
+            <th>
+                Reservation ID
+            </th>
+            <th>
+                Movie Title
+            </th>
+            <th>
+                Number of Ticket
+            </th>
+            <th>
+                Voucher
+            </th>
+
+            <th>
+                Total Price
+            </th>
+
+            <th>
+                Status
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.reservationID)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.movieTitle)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.numberOfTicket)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.voucherCode)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.totalPrice)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.status)
+                </td>
+
+                <td>
+                    @if (item.status != null && !item.status.Equals("Paid") && !item.status.Equals("Cancelled"))
+                    {
+                        using (Html.BeginForm("ProccessPayment", "Reservation", item))
+                        {
+                            <input class="btn btn-info" type="submit" name="toPay" value="Proccess payment ">
+                          
+                        }
+                    }
+                    else 
+                    {
+                            <input class="btn btn-info" type="submit" name="toPay" value="Proccess payment " disabled>
+                    }
+                    
+                </td>
+
+                <td>
+
+                    @if (item.status != null && !item.status.Equals("Cancelled") && !item.status.Equals("Paid"))
+                    {
+                        using (Html.BeginForm("CancelReservation", "Reservation", new { reservationID = item.reservationID }))
+                        {
+                            <input class="btn btn-danger" type="submit" name="toCancel" value="Cancel reservation">
+                        }
+                    }
+                    else
+                    {
+                        <input class="btn btn-danger" type="button" name="toCancel" value="Cancel reservation" disabled>
+                    }
+                </td>
+            </tr>
+        }
+    </table>
+}
+else
+{
+    <h2 class="text-info text-capitalize text-center">No reservations to show</h2>
+}

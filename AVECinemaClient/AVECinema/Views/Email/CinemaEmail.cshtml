@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "CinemaEmail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Send Email to Customers</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        <div class="col-md-10">
+            <input placeholder="Customers e-mails separated by space" class="form-control text-box single-line input-validation-error" data-val="true" data-val-required="Customer email is required" id="receivers" name="receivers" type="text" value="" aria-describedby="receivers-error" aria-invalid="true">
+            <span class="text-danger field-validation-error" data-valmsg-for="receivers" data-valmsg-replace="true"><span id="receivers-error" class=""></span></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-10">
+            <input placeholder="Subject" class="form-control text-box single-line input-validation-error" data-val="true" data-val-required="Subject is required" id="subject" name="subject" type="text" value="" aria-describedby="subject-error" aria-invalid="true">
+            <span class="text-danger field-validation-error" data-valmsg-for="subject" data-valmsg-replace="true"><span id="subject-error" class=""></span></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-10">
+            <textarea class="form-control input-validation-error" rows="5" data-val="true" data-val-required="Body is required" id="body" name="body" value="" aria-describedby="body-error" aria-invalid="true"></textarea>
+            <span class="text-danger field-validation-error" data-valmsg-for="body" data-valmsg-replace="true"><span id="body-error" class=""></span></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-10">
+            <input type="submit" value="Send Email" class="btn btn-block btn-info" />
+        </div>
+    </div>
+</div>
+
+}

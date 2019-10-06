@@ -1,0 +1,61 @@
+﻿@model List<TMDbLib.Objects.Search.SearchMovie>
+@{
+    ViewBag.Title = "AddMovie";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Add Movie</h2>
+
+
+@using (Html.BeginForm("AddMovie", "Movie"))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            <div class="col-md-10 col-sm-8">
+                <input type="text" name="query" value="" id="query" class="form-control text-box single-line">
+            </div>
+            <div class="col-md-2 col-sm-4">
+                <input type="submit" value="Search" class="btn btn-block btn-primary" />
+            </div>
+        </div>
+    </div>
+}
+
+@if (Model.Count != 0)
+{
+    @Html.AntiForgeryToken()
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="container">
+        @foreach (var m in Model)
+        {
+            using (Html.BeginForm("SelectMovieToAdd", "Movie"))
+            {
+                <div class="form-horizontal">
+                    <div class="row movie-block">
+                        <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                            <img class="center-block img-responsive" src="@("https://image.tmdb.org/t/p/w200" + m.PosterPath)" alt="@m.Title image" />
+                        </div>
+                        <div class="col-md-8 col-sm-8">
+                            <h3>@m.Title</h3>
+                            @if (m.ReleaseDate != null)
+                            {
+                                <h4><b>Release date: </b>@m.ReleaseDate.Value.ToShortDateString()</h4>
+                            }
+                            <p><b>Overview: </b>@m.Overview</p>
+                                <input type="hidden" value="@m.Id" name="movieId" />
+                                <input type="submit" value="@("Add '"+ m.Title + "'")" class="btn btn-info" />
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+}
+

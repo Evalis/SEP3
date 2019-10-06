@@ -1,0 +1,49 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+.profile-icon{
+    width: 100px;
+    height:auto;
+}
+
+.movie-block{
+    margin: 5px 0;
+}
+
+.seat {
+    height:50px;
+    width:50px;
+}
+
+.seat-selected{
+    background-color: cornflowerblue;
+}
+
+.seat-reserved
+{
+    background-color: darkmagenta;
+}
+
+.one-reservation
+{
+    max-width: 600px;
+}
+
+.m-10{
+    margin: 10px;
+}

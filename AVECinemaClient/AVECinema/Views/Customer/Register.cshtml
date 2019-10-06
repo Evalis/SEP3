@@ -1,0 +1,77 @@
+﻿@model AVECinema.cinema.customer
+
+@{
+                /**/
+
+                ViewBag.Title = "Register";
+                Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Register</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <label class="control-label col-md-2">First Name</label>
+
+            <div class="col-md-10">
+                <input class="form-control text-box single-line input-validation-error" data-val="true" data-val-required="First Name is required" id="firstName" name="firstName" type="text" value="" aria-describedby="firstName-error" aria-invalid="true">
+                <span class="text-danger field-validation-error" data-valmsg-for="firstName" data-valmsg-replace="true"><span id="firstName-error" class=""></span></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Last Name</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line input-validation-error" data-val="true" data-val-required="Last Name is required" id="lastName" name="lastName" type="text" value="" aria-describedby="lastName-error" aria-invalid="true">
+                <span class="text-danger field-validation-error" data-valmsg-for="lastName" data-valmsg-replace="true"><span id="lastName-error" class=""></span></span>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Phone No</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line input-validation-error" data-val="true" data-val-required="Phone no is required" id="phoneNo" name="phoneNo" type="text" value="" aria-describedby="phoneNo-error" aria-invalid="true">
+                <span class="text-danger field-validation-error" data-valmsg-for="phoneNo" data-valmsg-replace="true"><span id="phoneNo-error" class=""></span></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Email</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line input-validation-error" data-val="true" data-val-required="Email is required" id="email" name="email" type="text" value="" aria-describedby="email-error" aria-invalid="true">
+                <span class="text-danger field-validation-error" data-valmsg-for="email" data-valmsg-replace="true"><span id="email-error" class=""></span></span>
+
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">Password</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line input-validation-error" data-val="true" data-val-required="Password is required" id="password" name="password" type="password" value="" aria-describedby="password-error" aria-invalid="true">
+                <span class="text-danger field-validation-error" data-valmsg-for="password" data-valmsg-replace="true"><span id="password-error" class=""></span></span>
+            </div>
+        </div>
+
+        <span class="text-danger">@Html.ViewData["Message"]</span>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Register" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+
+}
+
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

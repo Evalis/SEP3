@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>@ViewBag.Title - AVE Cinema</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top ">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("AVE Cinema", "Programme", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Programme", "Programme", "Home")</li>
+                </ul>
+                <ul class="nav navbar-nav pull-right">
+
+                    @if (Session["email"] != null)
+                    {
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-fw fa-user"></i>@Session["email"]</a>
+                            <ul class="dropdown-menu">
+                                @if (Session["role"].ToString().Equals("customer"))
+                                {
+                                    <li>@Html.ActionLink("Personal info", "PersonalInfo", "Customer")</li>
+                                    <li>@Html.ActionLink("Reservations", "MyReservation", "Reservation")</li>
+                                }
+                                else
+                                {
+                                    <li>@Html.ActionLink("Personal info", "PersonalInfo", "Manager")</li>
+                                    <li>@Html.ActionLink("Add movie", "AddMovie", "Movie")</li>
+                                    <li>@Html.ActionLink("Edit movie", "MovieList", "Movie")</li>
+                                    <li>@Html.ActionLink("Voucher", "AllVouchers", "Voucher")</li>
+                                    <li>@Html.ActionLink("Reservations", "AllReservations", "Reservation")</li>
+                                    <li>@Html.ActionLink("Customers", "AllCustomers", "Customer")</li>
+                                    <li>@Html.ActionLink("E-mail to Customers", "CinemaEmail", "Email")</li>
+                                }
+
+                                <li class="divider"></li>
+                                <li>@Html.ActionLink("Log out", "Logout", "Home")</li>
+                            </ul>
+                        </li>
+                    }
+                    else
+                    {
+                        <li>@Html.ActionLink("Log in", "Login", "Home")</li>
+                        <li>@Html.ActionLink("Register", "Register", "Customer")</li>
+
+
+                    }
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year -  AVE Cinema </p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/myScript")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,447 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://webService/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="CinemaWebServiceService" targetNamespace="http://webService/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://localhost:8080/AVECinema/CinemaWebServiceService?xsd=1" namespace="http://webService/" />
+    </xsd:schema>
+  </types>
+  <message name="updateCustomerInfo">
+    <part name="parameters" element="tns:updateCustomerInfo" />
+  </message>
+  <message name="updateCustomerInfoResponse">
+    <part name="parameters" element="tns:updateCustomerInfoResponse" />
+  </message>
+  <message name="getAllMoviesForProgramme">
+    <part name="parameters" element="tns:getAllMoviesForProgramme" />
+  </message>
+  <message name="getAllMoviesForProgrammeResponse">
+    <part name="parameters" element="tns:getAllMoviesForProgrammeResponse" />
+  </message>
+  <message name="updateScheduleInfo">
+    <part name="parameters" element="tns:updateScheduleInfo" />
+  </message>
+  <message name="updateScheduleInfoResponse">
+    <part name="parameters" element="tns:updateScheduleInfoResponse" />
+  </message>
+  <message name="getAllReservationsByCustomer">
+    <part name="parameters" element="tns:getAllReservationsByCustomer" />
+  </message>
+  <message name="getAllReservationsByCustomerResponse">
+    <part name="parameters" element="tns:getAllReservationsByCustomerResponse" />
+  </message>
+  <message name="getAllReservations">
+    <part name="parameters" element="tns:getAllReservations" />
+  </message>
+  <message name="getAllReservationsResponse">
+    <part name="parameters" element="tns:getAllReservationsResponse" />
+  </message>
+  <message name="updateManagerInfo">
+    <part name="parameters" element="tns:updateManagerInfo" />
+  </message>
+  <message name="updateManagerInfoResponse">
+    <part name="parameters" element="tns:updateManagerInfoResponse" />
+  </message>
+  <message name="updateReservation">
+    <part name="parameters" element="tns:updateReservation" />
+  </message>
+  <message name="updateReservationResponse">
+    <part name="parameters" element="tns:updateReservationResponse" />
+  </message>
+  <message name="updateReservationStatus">
+    <part name="parameters" element="tns:updateReservationStatus" />
+  </message>
+  <message name="updateReservationStatusResponse">
+    <part name="parameters" element="tns:updateReservationStatusResponse" />
+  </message>
+  <message name="getCustomer">
+    <part name="parameters" element="tns:getCustomer" />
+  </message>
+  <message name="getCustomerResponse">
+    <part name="parameters" element="tns:getCustomerResponse" />
+  </message>
+  <message name="saveMovie">
+    <part name="parameters" element="tns:saveMovie" />
+  </message>
+  <message name="saveMovieResponse">
+    <part name="parameters" element="tns:saveMovieResponse" />
+  </message>
+  <message name="SQLException">
+    <part name="fault" element="tns:SQLException" />
+  </message>
+  <message name="logIn">
+    <part name="parameters" element="tns:logIn" />
+  </message>
+  <message name="logInResponse">
+    <part name="parameters" element="tns:logInResponse" />
+  </message>
+  <message name="getAllMovies">
+    <part name="parameters" element="tns:getAllMovies" />
+  </message>
+  <message name="getAllMoviesResponse">
+    <part name="parameters" element="tns:getAllMoviesResponse" />
+  </message>
+  <message name="getSchedules">
+    <part name="parameters" element="tns:getSchedules" />
+  </message>
+  <message name="getSchedulesResponse">
+    <part name="parameters" element="tns:getSchedulesResponse" />
+  </message>
+  <message name="updateMovieInfo">
+    <part name="parameters" element="tns:updateMovieInfo" />
+  </message>
+  <message name="updateMovieInfoResponse">
+    <part name="parameters" element="tns:updateMovieInfoResponse" />
+  </message>
+  <message name="createVoucher">
+    <part name="parameters" element="tns:createVoucher" />
+  </message>
+  <message name="createVoucherResponse">
+    <part name="parameters" element="tns:createVoucherResponse" />
+  </message>
+  <message name="getAllCustomers">
+    <part name="parameters" element="tns:getAllCustomers" />
+  </message>
+  <message name="getAllCustomersResponse">
+    <part name="parameters" element="tns:getAllCustomersResponse" />
+  </message>
+  <message name="getScheduleByID">
+    <part name="parameters" element="tns:getScheduleByID" />
+  </message>
+  <message name="getScheduleByIDResponse">
+    <part name="parameters" element="tns:getScheduleByIDResponse" />
+  </message>
+  <message name="getAllVouchers">
+    <part name="parameters" element="tns:getAllVouchers" />
+  </message>
+  <message name="getAllVouchersResponse">
+    <part name="parameters" element="tns:getAllVouchersResponse" />
+  </message>
+  <message name="makeReservation">
+    <part name="parameters" element="tns:makeReservation" />
+  </message>
+  <message name="makeReservationResponse">
+    <part name="parameters" element="tns:makeReservationResponse" />
+  </message>
+  <message name="createSchedule">
+    <part name="parameters" element="tns:createSchedule" />
+  </message>
+  <message name="createScheduleResponse">
+    <part name="parameters" element="tns:createScheduleResponse" />
+  </message>
+  <message name="getManager">
+    <part name="parameters" element="tns:getManager" />
+  </message>
+  <message name="getManagerResponse">
+    <part name="parameters" element="tns:getManagerResponse" />
+  </message>
+  <message name="registerNewCustomer">
+    <part name="parameters" element="tns:registerNewCustomer" />
+  </message>
+  <message name="registerNewCustomerResponse">
+    <part name="parameters" element="tns:registerNewCustomerResponse" />
+  </message>
+  <portType name="CinemaWebService">
+    <operation name="updateCustomerInfo">
+      <input wsam:Action="http://webService/CinemaWebService/updateCustomerInfoRequest" message="tns:updateCustomerInfo" />
+      <output wsam:Action="http://webService/CinemaWebService/updateCustomerInfoResponse" message="tns:updateCustomerInfoResponse" />
+    </operation>
+    <operation name="getAllMoviesForProgramme">
+      <input wsam:Action="http://webService/CinemaWebService/getAllMoviesForProgrammeRequest" message="tns:getAllMoviesForProgramme" />
+      <output wsam:Action="http://webService/CinemaWebService/getAllMoviesForProgrammeResponse" message="tns:getAllMoviesForProgrammeResponse" />
+    </operation>
+    <operation name="updateScheduleInfo">
+      <input wsam:Action="http://webService/CinemaWebService/updateScheduleInfoRequest" message="tns:updateScheduleInfo" />
+      <output wsam:Action="http://webService/CinemaWebService/updateScheduleInfoResponse" message="tns:updateScheduleInfoResponse" />
+    </operation>
+    <operation name="getAllReservationsByCustomer">
+      <input wsam:Action="http://webService/CinemaWebService/getAllReservationsByCustomerRequest" message="tns:getAllReservationsByCustomer" />
+      <output wsam:Action="http://webService/CinemaWebService/getAllReservationsByCustomerResponse" message="tns:getAllReservationsByCustomerResponse" />
+    </operation>
+    <operation name="getAllReservations">
+      <input wsam:Action="http://webService/CinemaWebService/getAllReservationsRequest" message="tns:getAllReservations" />
+      <output wsam:Action="http://webService/CinemaWebService/getAllReservationsResponse" message="tns:getAllReservationsResponse" />
+    </operation>
+    <operation name="updateManagerInfo">
+      <input wsam:Action="http://webService/CinemaWebService/updateManagerInfoRequest" message="tns:updateManagerInfo" />
+      <output wsam:Action="http://webService/CinemaWebService/updateManagerInfoResponse" message="tns:updateManagerInfoResponse" />
+    </operation>
+    <operation name="updateReservation">
+      <input wsam:Action="http://webService/CinemaWebService/updateReservationRequest" message="tns:updateReservation" />
+      <output wsam:Action="http://webService/CinemaWebService/updateReservationResponse" message="tns:updateReservationResponse" />
+    </operation>
+    <operation name="updateReservationStatus">
+      <input wsam:Action="http://webService/CinemaWebService/updateReservationStatusRequest" message="tns:updateReservationStatus" />
+      <output wsam:Action="http://webService/CinemaWebService/updateReservationStatusResponse" message="tns:updateReservationStatusResponse" />
+    </operation>
+    <operation name="getCustomer">
+      <input wsam:Action="http://webService/CinemaWebService/getCustomerRequest" message="tns:getCustomer" />
+      <output wsam:Action="http://webService/CinemaWebService/getCustomerResponse" message="tns:getCustomerResponse" />
+    </operation>
+    <operation name="saveMovie">
+      <input wsam:Action="http://webService/CinemaWebService/saveMovieRequest" message="tns:saveMovie" />
+      <output wsam:Action="http://webService/CinemaWebService/saveMovieResponse" message="tns:saveMovieResponse" />
+      <fault wsam:Action="http://webService/CinemaWebService/saveMovie/Fault/SQLException" name="SQLException" message="tns:SQLException" />
+    </operation>
+    <operation name="logIn">
+      <input wsam:Action="http://webService/CinemaWebService/logInRequest" message="tns:logIn" />
+      <output wsam:Action="http://webService/CinemaWebService/logInResponse" message="tns:logInResponse" />
+    </operation>
+    <operation name="getAllMovies">
+      <input wsam:Action="http://webService/CinemaWebService/getAllMoviesRequest" message="tns:getAllMovies" />
+      <output wsam:Action="http://webService/CinemaWebService/getAllMoviesResponse" message="tns:getAllMoviesResponse" />
+    </operation>
+    <operation name="getSchedules">
+      <input wsam:Action="http://webService/CinemaWebService/getSchedulesRequest" message="tns:getSchedules" />
+      <output wsam:Action="http://webService/CinemaWebService/getSchedulesResponse" message="tns:getSchedulesResponse" />
+    </operation>
+    <operation name="updateMovieInfo">
+      <input wsam:Action="http://webService/CinemaWebService/updateMovieInfoRequest" message="tns:updateMovieInfo" />
+      <output wsam:Action="http://webService/CinemaWebService/updateMovieInfoResponse" message="tns:updateMovieInfoResponse" />
+    </operation>
+    <operation name="createVoucher">
+      <input wsam:Action="http://webService/CinemaWebService/createVoucherRequest" message="tns:createVoucher" />
+      <output wsam:Action="http://webService/CinemaWebService/createVoucherResponse" message="tns:createVoucherResponse" />
+    </operation>
+    <operation name="getAllCustomers">
+      <input wsam:Action="http://webService/CinemaWebService/getAllCustomersRequest" message="tns:getAllCustomers" />
+      <output wsam:Action="http://webService/CinemaWebService/getAllCustomersResponse" message="tns:getAllCustomersResponse" />
+    </operation>
+    <operation name="getScheduleByID">
+      <input wsam:Action="http://webService/CinemaWebService/getScheduleByIDRequest" message="tns:getScheduleByID" />
+      <output wsam:Action="http://webService/CinemaWebService/getScheduleByIDResponse" message="tns:getScheduleByIDResponse" />
+    </operation>
+    <operation name="getAllVouchers">
+      <input wsam:Action="http://webService/CinemaWebService/getAllVouchersRequest" message="tns:getAllVouchers" />
+      <output wsam:Action="http://webService/CinemaWebService/getAllVouchersResponse" message="tns:getAllVouchersResponse" />
+    </operation>
+    <operation name="makeReservation">
+      <input wsam:Action="http://webService/CinemaWebService/makeReservationRequest" message="tns:makeReservation" />
+      <output wsam:Action="http://webService/CinemaWebService/makeReservationResponse" message="tns:makeReservationResponse" />
+    </operation>
+    <operation name="createSchedule">
+      <input wsam:Action="http://webService/CinemaWebService/createScheduleRequest" message="tns:createSchedule" />
+      <output wsam:Action="http://webService/CinemaWebService/createScheduleResponse" message="tns:createScheduleResponse" />
+    </operation>
+    <operation name="getManager">
+      <input wsam:Action="http://webService/CinemaWebService/getManagerRequest" message="tns:getManager" />
+      <output wsam:Action="http://webService/CinemaWebService/getManagerResponse" message="tns:getManagerResponse" />
+    </operation>
+    <operation name="registerNewCustomer">
+      <input wsam:Action="http://webService/CinemaWebService/registerNewCustomerRequest" message="tns:registerNewCustomer" />
+      <output wsam:Action="http://webService/CinemaWebService/registerNewCustomerResponse" message="tns:registerNewCustomerResponse" />
+      <fault wsam:Action="http://webService/CinemaWebService/registerNewCustomer/Fault/SQLException" name="SQLException" message="tns:SQLException" />
+    </operation>
+  </portType>
+  <binding name="CinemaWebServicePortBinding" type="tns:CinemaWebService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="updateCustomerInfo">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getAllMoviesForProgramme">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="updateScheduleInfo">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getAllReservationsByCustomer">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getAllReservations">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="updateManagerInfo">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="updateReservation">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="updateReservationStatus">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getCustomer">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="saveMovie">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SQLException">
+        <soap:fault use="literal" name="SQLException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="logIn">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getAllMovies">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getSchedules">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="updateMovieInfo">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="createVoucher">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getAllCustomers">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getScheduleByID">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getAllVouchers">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="makeReservation">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="createSchedule">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getManager">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="registerNewCustomer">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SQLException">
+        <soap:fault use="literal" name="SQLException" namespace="" />
+      </fault>
+    </operation>
+  </binding>
+  <service name="CinemaWebServiceService">
+    <port name="CinemaWebServicePort" binding="tns:CinemaWebServicePortBinding">
+      <soap:address location="http://localhost:8080/AVECinema/CinemaWebServiceService" />
+    </port>
+  </service>
+</definitions>

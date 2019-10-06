@@ -1,0 +1,43 @@
+﻿@model AVECinema.cinema.movie[]
+
+@{
+    ViewBag.Title = "Programme";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Programme</h2>
+@if (Model != null)
+{
+    <div class="container">
+        @foreach (var m in Model)
+        {
+            using (Html.BeginForm("SelectMovieToEdit", "Movie", m))
+            {
+                <div class="form-horizontal">
+                    <div class="row movie-block">
+                        <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                            <img class="center-block img-responsive" src="@m.posterUrl" alt="@m.title image" />
+                        </div>
+                        <div class="col-md-8 col-sm-8">
+                            <h2>@m.title</h2>
+                            <p><b>Genre: </b>@m.genre</p>
+                            <p><b>Overview: </b>@m.overview</p>
+                            <p><b>Director(s): </b>@m.director</p>
+                            <p><b>Actor(s): </b>@m.actor</p>
+                            <p><b>Duration: </b>@m.lenght</p>
+                            <p><b>Price: </b>@m.price</p>
+                            @foreach (var s in m.schedules)
+                            {
+                                <div class="schedule-box btn btn-default" onclick="makeReservationForSchedule( @s.scheduleID , @m.price )">
+                                    <b><h5>Room : @s.roomNo</h5></b>
+                                    <b><h4>@s.date</h4></b>
+                                    <b><h3>@s.startTime.Substring(0, s.startTime.Length - 3)</h3></b>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+}

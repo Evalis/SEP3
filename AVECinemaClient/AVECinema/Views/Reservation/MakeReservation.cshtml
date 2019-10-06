@@ -1,0 +1,81 @@
+﻿@model AVECinema.cinema.reservation
+
+@{
+    ViewBag.Title = "MakeReservation";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+
+}
+
+<h2>Make Reservation</h2>
+<br />
+<br />
+<h5>Movie Price:<span id="moviePrice">@ViewBag.moviePrice</span></h5>
+
+
+<div>
+
+    @for (int i = 1; i <= 42; i++)
+    {
+        if (ViewBag.reservedSeats.Contains(i))
+        {
+            <button id="@i" type="button" class="seat seat-reserved">@i</button>
+        }
+        else
+        {
+            <button id="@i" type="button" class="seat" @("onclick=clickOnSeat(" + i + ")")>@i</button>
+
+        }
+
+    }
+
+
+</div>
+<br />
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            <input type="hidden" value="[]" name="seats" id="seats" />
+            <label class="control-label col-md-2">Number of Ticket</label>
+
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.numberOfTicket, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.numberOfTicket, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+            <div class="form-group">
+            <label class="control-label col-md-2">Total Price</label>
+
+            <div class="col-md-10">
+
+                @Html.EditorFor(model => model.totalPrice, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.totalPrice, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Make reservation" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://webService/" targetNamespace="http://webService/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="SQLException" type="tns:SQLException" />
+  <xs:element name="createSchedule" type="tns:createSchedule" />
+  <xs:element name="createScheduleResponse" type="tns:createScheduleResponse" />
+  <xs:element name="createVoucher" type="tns:createVoucher" />
+  <xs:element name="createVoucherResponse" type="tns:createVoucherResponse" />
+  <xs:element name="getAllCustomers" type="tns:getAllCustomers" />
+  <xs:element name="getAllCustomersResponse" type="tns:getAllCustomersResponse" />
+  <xs:element name="getAllMovies" type="tns:getAllMovies" />
+  <xs:element name="getAllMoviesForProgramme" type="tns:getAllMoviesForProgramme" />
+  <xs:element name="getAllMoviesForProgrammeResponse" type="tns:getAllMoviesForProgrammeResponse" />
+  <xs:element name="getAllMoviesResponse" type="tns:getAllMoviesResponse" />
+  <xs:element name="getAllReservations" type="tns:getAllReservations" />
+  <xs:element name="getAllReservationsByCustomer" type="tns:getAllReservationsByCustomer" />
+  <xs:element name="getAllReservationsByCustomerResponse" type="tns:getAllReservationsByCustomerResponse" />
+  <xs:element name="getAllReservationsResponse" type="tns:getAllReservationsResponse" />
+  <xs:element name="getAllVouchers" type="tns:getAllVouchers" />
+  <xs:element name="getAllVouchersResponse" type="tns:getAllVouchersResponse" />
+  <xs:element name="getCustomer" type="tns:getCustomer" />
+  <xs:element name="getCustomerResponse" type="tns:getCustomerResponse" />
+  <xs:element name="getManager" type="tns:getManager" />
+  <xs:element name="getManagerResponse" type="tns:getManagerResponse" />
+  <xs:element name="getScheduleByID" type="tns:getScheduleByID" />
+  <xs:element name="getScheduleByIDResponse" type="tns:getScheduleByIDResponse" />
+  <xs:element name="getSchedules" type="tns:getSchedules" />
+  <xs:element name="getSchedulesResponse" type="tns:getSchedulesResponse" />
+  <xs:element name="logIn" type="tns:logIn" />
+  <xs:element name="logInResponse" type="tns:logInResponse" />
+  <xs:element name="makeReservation" type="tns:makeReservation" />
+  <xs:element name="makeReservationResponse" type="tns:makeReservationResponse" />
+  <xs:element name="registerNewCustomer" type="tns:registerNewCustomer" />
+  <xs:element name="registerNewCustomerResponse" type="tns:registerNewCustomerResponse" />
+  <xs:element name="saveMovie" type="tns:saveMovie" />
+  <xs:element name="saveMovieResponse" type="tns:saveMovieResponse" />
+  <xs:element name="updateCustomerInfo" type="tns:updateCustomerInfo" />
+  <xs:element name="updateCustomerInfoResponse" type="tns:updateCustomerInfoResponse" />
+  <xs:element name="updateManagerInfo" type="tns:updateManagerInfo" />
+  <xs:element name="updateManagerInfoResponse" type="tns:updateManagerInfoResponse" />
+  <xs:element name="updateMovieInfo" type="tns:updateMovieInfo" />
+  <xs:element name="updateMovieInfoResponse" type="tns:updateMovieInfoResponse" />
+  <xs:element name="updateReservation" type="tns:updateReservation" />
+  <xs:element name="updateReservationResponse" type="tns:updateReservationResponse" />
+  <xs:element name="updateReservationStatus" type="tns:updateReservationStatus" />
+  <xs:element name="updateReservationStatusResponse" type="tns:updateReservationStatusResponse" />
+  <xs:element name="updateScheduleInfo" type="tns:updateScheduleInfo" />
+  <xs:element name="updateScheduleInfoResponse" type="tns:updateScheduleInfoResponse" />
+  <xs:complexType name="getManager">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getManagerResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:manager" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="manager">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:user">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="customer" nillable="true" type="tns:customer" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="movies" nillable="true" type="tns:movie" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="reservations" nillable="true" type="tns:reservation" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="vouchers" nillable="true" type="tns:voucher" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="user" abstract="true">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="email" type="xs:string" />
+      <xs:element minOccurs="0" name="password" type="xs:string" />
+      <xs:element minOccurs="0" name="role" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="customer">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:user">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="firstName" type="xs:string" />
+          <xs:element minOccurs="0" name="lastName" type="xs:string" />
+          <xs:element minOccurs="0" name="phoneNo" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="movie">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="actor" type="xs:string" />
+      <xs:element minOccurs="0" name="director" type="xs:string" />
+      <xs:element minOccurs="0" name="genre" type="xs:string" />
+      <xs:element minOccurs="0" name="language" type="xs:string" />
+      <xs:element name="lenght" type="xs:int" />
+      <xs:element minOccurs="0" name="movieID" type="xs:string" />
+      <xs:element minOccurs="0" name="overview" type="xs:string" />
+      <xs:element minOccurs="0" name="posterUrl" type="xs:string" />
+      <xs:element name="price" type="xs:double" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="schedules" nillable="true" type="tns:schedule" />
+      <xs:element minOccurs="0" name="title" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="schedule">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="date" type="xs:string" />
+      <xs:element minOccurs="0" name="endTime" type="xs:string" />
+      <xs:element minOccurs="0" name="roomNo" type="xs:string" />
+      <xs:element name="scheduleID" type="xs:int" />
+      <xs:element name="seats">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="entry">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" name="key" type="xs:int" />
+                  <xs:element minOccurs="0" name="value" type="xs:int" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="startTime" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="reservation">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="movieTitle" type="xs:string" />
+      <xs:element name="numberOfTicket" type="xs:int" />
+      <xs:element name="reservationID" type="xs:int" />
+      <xs:element name="scheduleID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="seats" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="status" type="xs:string" />
+      <xs:element name="totalPrice" type="xs:double" />
+      <xs:element minOccurs="0" name="voucherCode" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="voucher">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="code" type="xs:string" />
+      <xs:element name="percentage" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="updateReservation">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:reservation" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="updateReservationResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="saveMovie">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:movie" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="saveMovieResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SQLException">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="SQLState" type="xs:string" />
+      <xs:element name="errorCode" type="xs:int" />
+      <xs:element minOccurs="0" name="message" type="xs:string" />
+      <xs:element minOccurs="0" name="nextException" type="tns:sqlException" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="sqlException">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:exception">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="nextException" type="tns:sqlException" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="exception">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:throwable">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="throwable">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="stackTrace" nillable="true" type="tns:stackTraceElement" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="stackTraceElement" final="extension restriction">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="updateMovieInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:movie" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="updateMovieInfoResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="updateCustomerInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:customer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="updateCustomerInfoResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getAllReservations">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="getAllReservationsResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:reservation" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getCustomer">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getCustomerResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:customer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="logIn">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="logInResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:user" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getAllVouchers">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="getAllVouchersResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:voucher" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getAllMoviesForProgramme">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="getAllMoviesForProgrammeResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:movie" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="updateReservationStatus">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:int" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="updateReservationStatusResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getAllCustomers">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="getAllCustomersResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:customer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getScheduleByID">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getScheduleByIDResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:schedule" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="makeReservation">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:reservation" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="makeReservationResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="createSchedule">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:schedule" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="createScheduleResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="updateManagerInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:manager" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="updateManagerInfoResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="registerNewCustomer">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:customer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="registerNewCustomerResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getAllReservationsByCustomer">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getAllReservationsByCustomerResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:reservation" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getAllMovies">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="getAllMoviesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:movie" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="updateScheduleInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:schedule" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="updateScheduleInfoResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getSchedules">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getSchedulesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:schedule" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="createVoucher">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:voucher" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="createVoucherResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

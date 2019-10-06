@@ -1,0 +1,113 @@
+﻿@model AVECinema.cinema.reservation
+
+@{
+    ViewBag.Title = "ProccessPayment";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Proccess Payment</h2>
+
+<div class="container-fluid text-center one-reservation">
+    <div class="row">
+        <div class="col-sm-6">
+            <h4 class="text-capitalize text-info">Movie Title</h4>
+        </div>
+        <div class="col-sm-6">
+            <h4>@Html.DisplayFor(model => model.movieTitle)</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <h4 class="text-capitalize text-info">Number of Ticket</h4>
+        </div>
+        <div class="col-sm-6">
+            <h4>@Html.DisplayFor(model => model.numberOfTicket)</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <h4 class="text-capitalize text-info">Schedule ID</h4>
+        </div>
+        <div class="col-sm-6">
+            <h4>@Html.DisplayFor(model => model.scheduleID)</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <h4 class="text-capitalize text-info">Status</h4>
+        </div>
+        <div class="col-sm-6">
+            <h4>@Html.DisplayFor(model => model.status)</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <h4 class="text-capitalize text-info">Total Price</h4>
+        </div>
+        <div class="col-sm-6">
+            <h4> @Html.DisplayFor(model => model.totalPrice)</h4>
+        </div>
+    </div>
+    <div class="row m-10">
+        @if (Model.voucherCode == null || Model.voucherCode == "")
+        {
+            using (Html.BeginForm("RedeemVoucher", "Reservation", Model))
+            {
+
+                <div class="col-sm-6">
+                    @Html.EditorFor(model => model.voucherCode, new { htmlAttributes = new { @class = "form-control", @placeholder = "Voucher Code" } })
+                </div>
+                <div class="col-sm-6">
+                    <input class="btn btn-success btn-block" type="submit" value="Redeem">
+                </div>
+            }
+        }
+        else
+        {
+            <div class="col-sm-6">
+                <h4 class="text-capitalize text-info">Voucher Code</h4>
+            </div>
+            <div class="col-sm-6">
+                <h4> @Html.DisplayFor(model => model.voucherCode)</h4>
+            </div>
+        }
+    </div>
+    
+
+    @using (Html.BeginForm("Pay", "Reservation", Model))
+    {
+        <div class="row">
+            <div class="col-sm-12">
+                <input class="form-control text-box single-line input-validation-error" placeholder="Card Holder Name" data-val="true" data-val-required="Card Holder Name is required" id="cardHolder" name="cardHolder" type="text" value="" aria-describedby="cardHolder-error" aria-invalid="true">
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-sm-12">
+                <input class="form-control text-box single-line input-validation-error" placeholder="Card number" data-val="true" data-val-required="Card Number is required" id="cardNumber" name="cardNumber" type="text" value="" aria-describedby="cardNumber-error" aria-invalid="true">
+            </div>
+
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-sm-4">
+                <input class="form-control text-box single-line input-validation-error" placeholder="Month" data-val="true" data-val-required="Month Number is required" id="month" name="month" type="text" value="" aria-describedby="month-error" aria-invalid="true">
+            </div>
+
+            <div class="col-sm-4">
+                <input class="form-control text-box single-line input-validation-error" placeholder="Year" data-val="true" data-val-required="Year Number is required" id="year" name="year" type="text" value="" aria-describedby="year-error" aria-invalid="true">
+            </div>
+
+            <div class="col-sm-4">
+                <input class="form-control text-box single-line input-validation-error" placeholder="CVV" data-val="true" data-val-required="CVV Number is required" id="cvv" name="cvv" type="text" value="" aria-describedby="cvv-error" aria-invalid="true">
+            </div>
+
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-sm-12">
+                <input class="btn btn-info btn-block" type="submit" value="Pay Now">
+            </div>
+        </div>
+    }
+</div>

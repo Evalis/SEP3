@@ -1,0 +1,45 @@
+﻿@model IEnumerable<AVECinema.cinema.voucher>
+
+@{
+    ViewBag.Title = "AllVouchers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>All Vouchers</h2>
+
+@if (Model != null)
+{ 
+    <table class="table">
+        <tr>
+            <th>
+                Voucher code
+            </th>
+            <th>
+                Percentage
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.code)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.percentage)
+                </td>
+
+            </tr>
+        }
+
+    </table>
+}
+else
+{
+<h2 class="text-info text-capitalize text-center">No voucher to show</h2>
+}
+<div>
+    <h5>@Html.ActionLink("Create new Voucher", "MakeVoucher", "Voucher")</h5>
+</div>
+

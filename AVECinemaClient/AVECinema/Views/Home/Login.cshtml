@@ -1,0 +1,56 @@
+﻿@model AVECinema.cinema.CinemaWebServiceClient
+
+@{
+                /**/
+
+                ViewBag.Title = "Login";
+                Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Login</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+
+            <label class="control-label col-md-2">Email</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line input-validation-error" data-val="true" data-val-required="Email is required" id="email" name="email" type="text" value="" aria-describedby="email-error" aria-invalid="true">
+                <span class="text-danger field-validation-error" data-valmsg-for="email" data-valmsg-replace="true"><span id="email-error" class=""></span></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">Password</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line input-validation-error" data-val="true" data-val-required="Password is required" id="password" name="password" type="text" value="" aria-describedby="password-error" aria-invalid="true">
+                <span class="text-danger field-validation-error" data-valmsg-for="password" data-valmsg-replace="true"><span id="password-error" class=""></span></span>
+            </div>
+            
+        </div>
+
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Log in" class="btn btn-default" />
+        </div>
+    </div>
+    <span class="text-danger">@Html.ViewData["Message"]</span>
+    <br />
+    <br />
+    <br />
+    <br />
+
+    <div>
+        <h4>@Html.ActionLink("If you don't have account, just CLICK and register yourself", "Register", "Customer")</h4>
+    </div>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

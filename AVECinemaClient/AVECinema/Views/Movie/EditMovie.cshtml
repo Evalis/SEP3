@@ -1,0 +1,130 @@
+﻿@model AVECinema.cinema.movie
+
+@{
+    ViewBag.Title = "CreateMovie";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit Movie</h2>
+
+<div class="form-horizontal">
+    <div class="form-group">
+        <div class="col-md-10">
+            @using (Html.BeginForm("AddSchedule", "Movie", FormMethod.Get))
+            {
+            <input type="hidden" value="@Model.movieID" name="movieID" id="movieID" />
+            <input type="submit" value="Add Schedule" class="btn btn-info" />
+            }
+            @using (Html.BeginForm("SelectScheduleToEdit", "Movie"))
+            {
+            <input type="hidden" value="@Model.movieID" name="movieID" id="movieID" />
+            <input type="submit" value="Edit Schedule" class="btn btn-info" />
+            }
+        </div>
+    </div>
+</div>
+
+
+@using (Html.BeginForm("EditMovie", "Movie", FormMethod.Post))
+{
+@Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Movie ID</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.movieID, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.movieID, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Title</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.title, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.title, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Genre</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.genre, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.genre, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Director</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.director, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.director, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Actor</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.actor, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.actor, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Overview</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.overview, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.overview, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Language</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.language, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.language, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Lenght</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.lenght, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.lenght, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Price</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.price, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.price, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Poster URL</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.posterUrl, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.posterUrl, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <span class="text-danger">@Html.ViewData["Message"]</span>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Save" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
